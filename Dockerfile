@@ -19,7 +19,7 @@ then\n\
   /root/get_iplayer --prefs-add --modes=tvbest,radiobest\n\
   /root/get_iplayer --prefs-add --subtitles\n\
 fi\n\
-echo Forcing output location...
+echo Forcing output location...\n\
 /root/get_iplayer --prefs-add --output="/root/output/"\n\
 /usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/get_iplayer\n\
 ' > /root/start.sh && chmod 777 /root/start.sh
