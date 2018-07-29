@@ -4,7 +4,7 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install atomicparsley ffmpeg perl libjson-pp-perl libxml-perl liblwp-protocol-https-perl libmojolicious-perl libcgi-fast-perl wget -y
 RUN echo $'#!/bin/bash \n\
-if [[ ! -f /root/get-iplayer.cgi ]] || [[ ! -n $FORCEUPDATE ]] \n\
+if [[ ! -f /root/get-iplayer.cgi ]] \n\
 then \n\
   \#wget https://github.com/get-iplayer/get_iplayer/archive/v3.16.tar.gz -O /root/get_iplayer-latest.tar.gz \n\
   \#tar -xzf /root/get_iplayer-latest.tar.gz /root/ \n\
