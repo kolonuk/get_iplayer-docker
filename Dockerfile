@@ -11,7 +11,7 @@ then \n\
   wget https://raw.githubusercontent.com/get-iplayer/get_iplayer/master/get_iplayer.cgi -O /root/get_iplayer.cgi \n\
   wget https://raw.githubusercontent.com/get-iplayer/get_iplayer/master/get_iplayer -O /root/get_iplayer \n\
 fi \n\
-/usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/getiplayer \n\
+/usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/get_iplayer \n\
 ' > /root/start.sh && chmod 777 /root/start.sh
 
 VOLUME /root/.get_iplayer
