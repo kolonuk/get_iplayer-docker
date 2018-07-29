@@ -3,14 +3,14 @@ FROM ubuntu
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install atomicparsley ffmpeg perl libjson-pp-perl libxml-perl libxml-libxml-simple-perl liblwp-protocol-https-perl libmojolicious-perl libcgi-fast-perl wget bash -y
-RUN echo $'#!/bin/bash\n\
-if [[ ! -f /root/get-iplayer.cgi ]]\n\
+RUN echo $'\#!/bin/bash\n\
+if [[ ! -f /root/get_iplayer.cgi ]]\n\
 then\n\
   wget -q https://raw.githubusercontent.com/get-iplayer/get_iplayer/master/get_iplayer.cgi -O /root/get_iplayer.cgi\n\
   wget -q https://raw.githubusercontent.com/get-iplayer/get_iplayer/master/get_iplayer -O /root/get_iplayer\n\
   chmod 744 /root/get_iplayer\n\
 fi\n\
-if [[ ! -f /root/.get-iplayer/options ]]\n\
+if [[ ! -f /root/.get_iplayer/options ]]\n\
 then\n\
   echo No options file found, adding some nice defaults...\n\
   /root/get_iplayer --prefs-add --overwrite\n\
