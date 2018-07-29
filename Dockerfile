@@ -13,6 +13,14 @@ then\n\
   chmod 744 /root/get_iplayer\n\
 fi\n\
 /root/get_iplayer --prefs-add --output="/root/output/"\n\
+if [[ ! -f /root/.get-iplayer/options ]]\n\
+then\n\
+  /root/get_iplayer --prefs-add --overwrite\n\
+  /root/get_iplayer --prefs-add --force\n\
+  /root/get_iplayer --prefs-add --whitespace\n\
+  /root/get_iplayer --prefs-add --modes=tvbest,radiobest\n\
+  /root/get_iplayer --prefs-add --subtitles\n\
+fi\n\
 /usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/get_iplayer\n\
 ' > /root/start.sh && chmod 777 /root/start.sh
 
