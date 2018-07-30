@@ -1,8 +1,11 @@
-FROM ubuntu
+FROM phusion/baseimage
+#FROM ubuntu
 
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install atomicparsley ffmpeg perl libjson-pp-perl libxml-libxml-perl libcgi-pm-perl liblwp-protocol-https-perl libmojolicious-perl wget bash cron -y
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 RUN echo $'\#!/bin/bash\n\
 if [[ ! -f /root/get_iplayer.cgi ]]\n\
 then\n\
