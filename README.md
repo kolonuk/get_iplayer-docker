@@ -23,10 +23,10 @@ For now, this uses the plain Ubuntu image, so is huge for a very simply perl pro
 ## Start
 Upon first start, it will download the latest get_iplayer scripts from the official github repo <https://github.com/get-iplayer/get_iplayer>.  This is different from other docker containers in that when the version of get_iplayer changes, you just need to re-create this container and it will have the latest working versions.  Currently, it just grabs the raw source code, but the next step is to actually check the releases and upgrade when a new release is available.
 
-**Watchtower <https://github.com/v2tec/watchtower> will not update this container to the latest version of get_iplayer.  Until Docker introduces monitoring of alternative github repos, this is the best you can get.**
-
 * When starting this for the first time, it will create some nice newbie default options (allow repeat downloads, allow overwrite, enable whitespace in filenames, etc.).
 * When starting this using existing configuration files, it will forcibly change the output location to the container's output volume location, thus hopefully, it should "just work".
+
+**Watchtower <https://github.com/v2tec/watchtower> will not update this container to the latest version of get_iplayer.  Until Docker introduces monitoring of alternative github repos, this is the best you can get.**  To update, either delete `/root/get_iplayer*` in the container, or recreate it - I use Portainer <https://hub.docker.com/r/portainer/portainer/> and just hit the `Recreate` button.
 
 ## Issues
 * Report issues with this dockerfile <https://github.com/kolonuk/get_iplayer/issues>
