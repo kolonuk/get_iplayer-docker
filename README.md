@@ -14,7 +14,7 @@ For now, this uses the plain Ubuntu image, so is huge for a very simply perl pro
     kolonuk/get_iplayer
 
 * Backup your current config and recordings.
-* Mount `/root/.get_iplayer` to your config directory.  This should incoude your `options` file and `pvr` directory.  If starting from scratch, you can manually edit the `options` file created here.
+* Mount `/root/.get_iplayer` to your config directory.  This should include your `options` file and `pvr` directory.  If starting from scratch, you can manually edit the `options` file created here.
 * Mount `/root/output` to your recordings location.
 
 **WARNING - get_iplayer stores cookies in your browser for some default settings.  Because of this, at least try to see if you can find those cookies and remove them BEFORE loading the newly installed container.**
