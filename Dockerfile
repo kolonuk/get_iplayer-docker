@@ -2,7 +2,7 @@ FROM ubuntu
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install atomicparsley ffmpeg perl libjson-pp-perl libxml-perl libxml-libxml-simple-perl liblwp-protocol-https-perl libmojolicious-perl libcgi-fast-perl wget bash cron -y
+RUN apt-get install atomicparsley ffmpeg perl libjson-pp-perl libxml-libxml-perl libcgi-pm-perl liblwp-protocol-https-perl libmojolicious-perl wget bash cron -y
 RUN echo $'\#!/bin/bash\n\
 if [[ ! -f /root/get_iplayer.cgi ]]\n\
 then\n\
@@ -13,8 +13,6 @@ fi\n\
 if [[ ! -f /root/.get_iplayer/options ]]\n\
 then\n\
   echo No options file found, adding some nice defaults...\n\
-  /root/get_iplayer --prefs-add --overwrite\n\
-  /root/get_iplayer --prefs-add --force\n\
   /root/get_iplayer --prefs-add --whitespace\n\
   /root/get_iplayer --prefs-add --modes=tvbest,radiobest\n\
   /root/get_iplayer --prefs-add --subtitles\n\
