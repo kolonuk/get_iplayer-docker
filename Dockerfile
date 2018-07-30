@@ -2,7 +2,7 @@ FROM ubuntu
 
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install atomicparsley ffmpeg perl libjson-pp-perl libxml-perl libxml-libxml-simple-perl liblwp-protocol-https-perl libmojolicious-perl libcgi-fast-perl wget bash -y
+RUN apt-get install atomicparsley ffmpeg perl libjson-pp-perl libxml-perl libxml-libxml-simple-perl liblwp-protocol-https-perl libmojolicious-perl libcgi-fast-perl wget bash cron -y
 RUN echo $'\#!/bin/bash\n\
 if [[ ! -f /root/get_iplayer.cgi ]]\n\
 then\n\
@@ -26,8 +26,8 @@ echo Forcing output location...\n\
 /usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/get_iplayer\n\
 ' > /root/start.sh && chmod 755 /root/start.sh
 
-RUN crontab -l | { cat; echo "@hourly /root/get_iplayer --refresh --refresh-future --type=all --nopurge"; } | crontab -
-RUN crontab -l | { cat; echo "@hourly /root/get_iplayer --type=all --pvr --nopurge"; } | crontab -
+RUN crontab -l | { cat; echo "@hourly /root/get_iplayer --refresh --refresh-future --type=all --nopurge > /proc/1/fd/1 2>&1"; } | crontab -
+RUN crontab -l | { cat; echo "@hourly /root/get_iplayer --type=all --pvr --nopurge > /proc/1/fd/1 2>&1"; } | crontab -
 
 VOLUME /root/.get_iplayer
 VOLUME /root/output
