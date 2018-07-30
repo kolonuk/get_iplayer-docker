@@ -34,7 +34,7 @@ VOLUME /root/output
 
 LABEL maintainer="John Wood <john@kolon.co.uk>"
 LABEL issues_kolonuk/get_iplayer="Comments/issues for this dockerfile: https://github.com/kolonuk/get_iplayer/issues"
-LABEL issues_get_iplayer="https://forums.squarepenguin.co.uk"
+LABEL issues_get_iplayer="Comments/issues for get_iplayer: <a href=\"https://forums.squarepenguin.co.uk\"> here </a>"
 
 EXPOSE 8181
 
