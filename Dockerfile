@@ -1,24 +1,10 @@
 FROM kolonuk/get_iplayer-docker-base
 
-RUN echo $'\#!/bin/bash\n\
-if [[ ! -f /root/get_iplayer.cgi ]]\n\
-then\n\
-  wget -q https://raw.githubusercontent.com/get-iplayer/get_iplayer/master/get_iplayer.cgi -O /root/get_iplayer.cgi\n\
-  wget -q https://raw.githubusercontent.com/get-iplayer/get_iplayer/master/get_iplayer -O /root/get_iplayer\n\
-  chmod 755 /root/get_iplayer\n\
-fi\n\
-if [[ ! -f /root/.get_iplayer/options ]]\n\
-then\n\
-  echo No options file found, adding some nice defaults...\n\
-  /root/get_iplayer --prefs-add --whitespace\n\
-  /root/get_iplayer --prefs-add --subs-embed\n\
-  /root/get_iplayer --prefs-add --metadata\n\
-  /root/get_iplayer --prefs-add --nopurge\n\
-fi\n\
-echo Forcing output location...\n\
-/root/get_iplayer --prefs-add --output="/root/output/"\n\
-/usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/get_iplayer\n\
-' > /root/start.sh && chmod 755 /root/start.sh
+ADD start.sh /root/start.sh
+ADD update.sh /root/update.sh
+
+RUN chmod 755 /root/start.sh
+RUN chmod 755 /root/update.sh
 
 RUN crontab -l | { cat; echo "@hourly /root/get_iplayer --refresh > /proc/1/fd/1 2>&1"; } | crontab -
 RUN crontab -l | { cat; echo "@hourly /root/get_iplayer --pvr > /proc/1/fd/1 2>&1"; } | crontab -
