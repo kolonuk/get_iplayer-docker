@@ -30,7 +30,7 @@ if [[ "$VERSION" -ne "$VERSIONcgi" ]] || \
 then
   if [[ "$RELEASE" -eq "" ]]
   then
-    # No release returned from github
+    # No release returned from github, download manually
     wget -q https://raw.githubusercontent.com/get-iplayer/get_iplayer/master/get_iplayer.cgi -O /root/get_iplayer.cgi
     wget -q https://raw.githubusercontent.com/get-iplayer/get_iplayer/master/get_iplayer -O /root/get_iplayer
     chmod 755 /root/get_iplayer
@@ -45,7 +45,12 @@ then
   reboot
     
   #kill current get_iplayer gracefully (is pvr/cache refresh running?)
-    
-  #Spawn new get_iplayer
-  #/root/start.sh &
+#  if [[ -f /root/.get_iplayer/pvr_lock ]] || [[ -f /root/.get_iplayer/??refreshcache_lock ]]
+#  then
+#    echo -e ****** Warning - updates scripts, but processes running so unable to retsrat get_iplayer
+#  else
+    #Spawn new get_iplayer
+#    /root/start.sh &
+#  fi
+
 fi
