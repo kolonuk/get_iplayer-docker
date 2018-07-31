@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Pause a little while to allow docker logging to start properly
+sleep 10
+
 # Check if we have get_iplayer
 if [[ ! -f /root/get_iplayer.cgi ]]
 then
