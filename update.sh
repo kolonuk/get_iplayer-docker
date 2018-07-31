@@ -24,7 +24,7 @@ fi
 
 if [[ "$VERSION" != "$VERSIONcgi" ]] || \
    [[ "$VERSION" == "" ]] || \
-   [[ "$VERSIONcgi" -== "" ]] || \
+   [[ "$VERSIONcgi" == "" ]] || \
    [[ "$VERSION" != "$RELEASE" ]] || \
    [[ "$FORCEDOWNLOAD" != "" ]]
 then
