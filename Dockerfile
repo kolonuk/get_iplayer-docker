@@ -8,6 +8,8 @@ RUN chmod 755 /root/update.sh
 
 RUN crontab -l | { cat; echo "@hourly /root/get_iplayer --refresh > /proc/1/fd/1 2>&1"; } | crontab -
 RUN crontab -l | { cat; echo "@hourly /root/get_iplayer --pvr > /proc/1/fd/1 2>&1"; } | crontab -
+# Run update script every day
+RUN crontab -l | { cat; echo "@daily /root/update.sh > /proc/1/fd/1 2>&1"; } | crontab -
 
 VOLUME /root/.get_iplayer
 VOLUME /root/output
