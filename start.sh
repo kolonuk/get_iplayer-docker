@@ -16,6 +16,7 @@ then
   /root/get_iplayer --prefs-add --nopurge
 fi
 
+# Force output location to a separate docker volume
 echo Forcing output location...
 /root/get_iplayer --prefs-add --output="/root/output/"
 
