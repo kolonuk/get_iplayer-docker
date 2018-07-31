@@ -19,8 +19,7 @@ RELEASE = $(wget -q -O - "https://api.github.com/repos/get-iplayer/get_iplayer/r
 if [[ "$RELEASE" -eq "" ]] && [[ "$FORCEDOWNLOAD" -eq "" ]]
 then
   #indicates something wrong with the github call
-  echo ******** Warning - unable to check latest release!!
-  exit 1
+  echo -e ******** Warning - unable to check latest release!!  Please raise an issue https://github.com/kolonuk/get_iplayer-docker/issues/new
 fi
 
 if [[ "$VERSION" -ne "$VERSIONcgi" ]] || \
