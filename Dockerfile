@@ -11,18 +11,17 @@ if [[ ! -f /root/.get_iplayer/options ]]\n\
 then\n\
   echo No options file found, adding some nice defaults...\n\
   /root/get_iplayer --prefs-add --whitespace\n\
-  /root/get_iplayer --prefs-add --modes=tvbest,radiobest\n\
-  /root/get_iplayer --prefs-add --subtitles\n\
   /root/get_iplayer --prefs-add --subs-embed\n\
   /root/get_iplayer --prefs-add --metadata\n\
+  /root/get_iplayer --prefs-add --nopurge\n\
 fi\n\
 echo Forcing output location...\n\
 /root/get_iplayer --prefs-add --output="/root/output/"\n\
 /usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/get_iplayer\n\
 ' > /root/start.sh && chmod 755 /root/start.sh
 
-RUN crontab -l | { cat; echo "@hourly /root/get_iplayer --refresh --type=all --nopurge > /proc/1/fd/1 2>&1"; } | crontab -
-RUN crontab -l | { cat; echo "@hourly /root/get_iplayer --type=all --pvr --nopurge > /proc/1/fd/1 2>&1"; } | crontab -
+RUN crontab -l | { cat; echo "@hourly /root/get_iplayer --refresh > /proc/1/fd/1 2>&1"; } | crontab -
+RUN crontab -l | { cat; echo "@hourly /root/get_iplayer --pvr > /proc/1/fd/1 2>&1"; } | crontab -
 
 VOLUME /root/.get_iplayer
 VOLUME /root/output
