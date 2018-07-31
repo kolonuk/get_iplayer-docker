@@ -1,11 +1,12 @@
 #!/bin/bash
+
+# Check if we have get_iplayer
 if [[ ! -f /root/get_iplayer.cgi ]]
 then
-  wget -q https://raw.githubusercontent.com/get-iplayer/get_iplayer/master/get_iplayer.cgi -O /root/get_iplayer.cgi
-  wget -q https://raw.githubusercontent.com/get-iplayer/get_iplayer/master/get_iplayer -O /root/get_iplayer
-  chmod 755 /root/get_iplayer
+  /root/update.sh
 fi
 
+# Set some nice defaults
 if [[ ! -f /root/.get_iplayer/options ]]
 then
   echo No options file found, adding some nice defaults...
