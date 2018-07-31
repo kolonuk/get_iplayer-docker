@@ -1,9 +1,4 @@
-FROM ubuntu
-
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get install --no-install-recommends atomicparsley ffmpeg perl libjson-pp-perl libxml-libxml-perl libcgi-pm-perl liblwp-protocol-https-perl libmojolicious-perl wget bash cron -y
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+FROM kolonuk/get_iplayer-docker-base
 
 RUN echo $'\#!/bin/bash\n\
 if [[ ! -f /root/get_iplayer.cgi ]]\n\
