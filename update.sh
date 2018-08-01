@@ -15,10 +15,6 @@ fi
 # Get current github release version
 RELEASE=$(wget -q -O - "https://api.github.com/repos/get-iplayer/get_iplayer/releases/latest" | grep -Po '"tag_name": "v\K.*?(?=")')
 
-echo VERSIONcgi=$VERSIONcgi
-echo VERSION=$VERSION
-echo RELEASE=$RELEASE
-
 # If no github version returned
 if [[ "$RELEASE" == "" ]] && [[ "$FORCEDOWNLOAD" -eq "" ]]
 then
@@ -40,10 +36,10 @@ then
     chmod 755 /root/get_iplayer
   else
     # Download and unpack release
-    wget https://github.com/get-iplayer/get_iplayer/archive/v$RELEASE.tar.gz -O /root/latest.tar.gz
+    wget -q https://github.com/get-iplayer/get_iplayer/archive/v$RELEASE.tar.gz -O /root/latest.tar.gz
     cd /root
     tar -xzf /root/latest.tar.gz get_iplayer-$RELEASE --directory /root/ --strip-components=1
-    #rm /root/latest.tar.gz
+    rm /root/latest.tar.gz
   fi
   
   #kill current get_iplayer gracefully (is pvr/cache refresh running?)
