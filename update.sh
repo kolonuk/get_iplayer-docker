@@ -41,16 +41,17 @@ then
     rm /root/latest.tar.gz
   fi
   
-  #This is a little harsh, but will do for now
-  reboot
-    
   #kill current get_iplayer gracefully (is pvr/cache refresh running?)
-#  if [[ -f /root/.get_iplayer/pvr_lock ]] || [[ -f /root/.get_iplayer/??refreshcache_lock ]]
-#  then
-#    echo -e ****** Warning - updates scripts, but processes running so unable to retsrat get_iplayer
-#  else
-    #Spawn new get_iplayer
-#    /root/start.sh &
-#  fi
-
+  if [[ -f /root/.get_iplayer/pvr_lock ]] || [[ -f /root/.get_iplayer/??refreshcache_lock ]]
+  then
+    echo -e ****** Warning - updated scripts, but get_iplayer processes are running so unable to retstart get_iplayer
+  else
+    CURRENT=$(ps -ef | grep perl)
+    if [[ "$CURRENT" != "" ]]
+    then
+      killall -9 perl
+      #Spawn new get_iplayer
+      if [[ "$1" != "start" ]]; then /root/start.sh; fi
+    fi
+  fi
 fi
