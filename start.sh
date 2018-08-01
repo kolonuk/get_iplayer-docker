@@ -3,7 +3,7 @@
 # Check if we have get_iplayer
 if [[ ! -f /root/get_iplayer.cgi ]]
 then
-  /root/update.sh
+  /root/update.sh start
 fi
 
 if [[ ! -f /root/get_iplayer ]]
