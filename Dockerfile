@@ -17,7 +17,7 @@ VOLUME /root/output
 # Fill this with anything to always force the latest release to be downloaded
 #ENV FORCEDOWNLOAD 
 
-LABEL forcedownload="Set this docker environment variable to anything to always force the latest release to be download
+LABEL forcedownload="Set this docker environment variable to anything to always force the latest release to be download"
 LABEL issues_get_iplayer="Comments/issues for get_iplayer: <a href=\"https://forums.squarepenguin.co.uk\"> here </a>"
 LABEL issues_kolonuk/get_iplayer="Comments/issues for this dockerfile: https://github.com/kolonuk/get_iplayer/issues"
 LABEL maintainer="John Wood <john@kolon.co.uk>"
