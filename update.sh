@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo Checking latest version of get_iplayer...
+
 # Get cgi script version
 if [[ -f /root/get_iplayer.cgi ]]
 then
@@ -19,7 +21,7 @@ RELEASE=$(wget -q -O - "https://api.github.com/repos/get-iplayer/get_iplayer/rel
 if [[ "$RELEASE" == "" ]] && [[ "$FORCEDOWNLOAD" -eq "" ]]
 then
   #indicates something wrong with the github call
-  echo -e ******** Warning - unable to check latest release!!  Please raise an issue https://github.com/kolonuk/get_iplayer-docker/issues/new
+  echo ******** Warning - unable to check latest release!!  Please raise an issue https://github.com/kolonuk/get_iplayer-docker/issues/new
 fi
 
 if [[ "$VERSION" != "$VERSIONcgi" ]] || \
@@ -28,6 +30,7 @@ if [[ "$VERSION" != "$VERSIONcgi" ]] || \
    [[ "$VERSION" != "$RELEASE" ]] || \
    [[ "$FORCEDOWNLOAD" != "" ]]
 then
+  echo Getting latest version of get_iplayer...
   if [[ "$RELEASE" == "" ]]
   then
     # No release returned from github, download manually
@@ -45,11 +48,12 @@ then
   #kill current get_iplayer gracefully (is pvr/cache refresh running?)
   if [[ -f /root/.get_iplayer/pvr_lock ]] #|| [[ -f /root/.get_iplayer/??refreshcache_lock ]]
   then
-    echo -e ****** Warning - updated scripts, but get_iplayer processes are running so unable to restart get_iplayer
+    echo ****** Warning - updated scripts, but get_iplayer processes are running so unable to restart get_iplayer
   else
     # This will kill the running perl processes, and the start script will just re-load it
     if [[ "$1" != "start" ]]
     then
+      echo Killing get_iplayer process...
       killall -9 perl
     fi
   fi
