@@ -35,23 +35,18 @@ then
     wget -q https://raw.githubusercontent.com/get-iplayer/get_iplayer/master/get_iplayer -O /root/get_iplayer
     chmod 755 /root/get_iplayer
   else
-    # Download release
+    # Download and unpack release
     wget -q https://github.com/get-iplayer/get_iplayer/archive/v$RELEASE.tar.gz -O /root/latest.tar.gz
     tar -xzf /root/latest.tar.gz get_iplayer-$RELEASE --directory /root/
     rm /root/latest.tar.gz
   fi
   
   #kill current get_iplayer gracefully (is pvr/cache refresh running?)
-  if [[ -f /root/.get_iplayer/pvr_lock ]] || [[ -f /root/.get_iplayer/??refreshcache_lock ]]
+  if [[ -f /root/.get_iplayer/pvr_lock ]] #|| [[ -f /root/.get_iplayer/??refreshcache_lock ]]
   then
-    echo -e ****** Warning - updated scripts, but get_iplayer processes are running so unable to retstart get_iplayer
+    echo -e ****** Warning - updated scripts, but get_iplayer processes are running so unable to restart get_iplayer
   else
-    CURRENT=$(ps -ef | grep perl)
-    if [[ "$CURRENT" != "" ]]
-    then
-      killall -9 perl
-      #Spawn new get_iplayer
-      if [[ "$1" != "start" ]]; then /root/start.sh; fi
-    fi
+    # This will kill the container, so need to have it auto restart on failure at the very least
+    killall -9 perl
   fi
 fi
