@@ -22,6 +22,6 @@ LABEL issues_get_iplayer="Comments/issues for get_iplayer: <a href=\"https://for
 LABEL issues_kolonuk/get_iplayer="Comments/issues for this dockerfile: https://github.com/kolonuk/get_iplayer/issues"
 LABEL maintainer="John Wood <john@kolon.co.uk>"
 
-EXPOSE 8181
+EXPOSE 8181 8181
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
