@@ -6,6 +6,11 @@ then
   /root/update.sh
 fi
 
+if [[ ! -f /root/get_iplayer ]]
+then  # pause for checking things out...
+  sleep 9999
+fi
+
 # Set some nice defaults
 if [[ ! -f /root/.get_iplayer/options ]]
 then
