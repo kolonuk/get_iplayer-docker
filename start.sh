@@ -22,7 +22,11 @@ echo Forcing output location...
 
 if [[ -f /root/get_iplayer.cgi ]]
 then
-  /usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/get_iplayer
+  # Keep restarting - for when the get_iplayer script is updated
+  while true
+  do
+    /usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/get_iplayer
+  done 
 else
   sleep 99999 # when testing, keep container up long enough to check stuff out
 fi
