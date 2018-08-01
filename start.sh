@@ -8,7 +8,7 @@ fi
 
 if [[ ! -f /root/get_iplayer ]]
 then  # pause for checking things out...
-  echo -e (1) Error occurred, pausing for 9999 seconds for investigation
+  echo err1 - Error occurred, pausing for 9999 seconds for investigation
   sleep 9999
 fi
 
@@ -34,7 +34,7 @@ then
     /usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/get_iplayer
   done 
 else
-  echo -e (2) Error occurred, pausing for 9999 seconds for investigation
+  echo err2 - Error occurred, pausing for 9999 seconds for investigation
   sleep 9999 # when testing, keep container up long enough to check stuff out
 fi
 
