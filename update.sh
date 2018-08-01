@@ -48,6 +48,9 @@ then
     echo -e ****** Warning - updated scripts, but get_iplayer processes are running so unable to restart get_iplayer
   else
     # This will kill the running perl processes, and the start script will just re-load it
-    killall -9 perl
+    if [[ "$1" != "start" ]]
+    then
+      killall -9 perl
+    fi
   fi
 fi
