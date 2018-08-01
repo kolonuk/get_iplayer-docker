@@ -41,6 +41,7 @@ then
   else
     # Download and unpack release
     wget https://github.com/get-iplayer/get_iplayer/archive/v$RELEASE.tar.gz -O /root/latest.tar.gz
+    cd /root
     tar -xzf /root/latest.tar.gz get_iplayer-$RELEASE --directory /root/ --strip-components=1
     #rm /root/latest.tar.gz
   fi
