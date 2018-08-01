@@ -23,4 +23,10 @@ fi
 echo Forcing output location...
 /root/get_iplayer --prefs-add --output="/root/output/"
 
-/usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/get_iplayer
+if [[ -f /root/get_iplayer.cgi ]]
+then
+  /usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/get_iplayer
+else
+  sleep 99999 # when testing, keep container up long enough to check stuff out
+fi
+
