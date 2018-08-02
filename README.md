@@ -2,7 +2,7 @@
 
 Disappointed with the current availability of get_iplayer in docker, I created an auto-updating docker container, complete with the webgui.
 
-For now, this uses the plain Ubuntu image, so is huge for a very simple perl program - definitely needs the packages trimming.  I've added a testing branch to the github repo so that I can experiment with either other base images to see if I can get this reduced in size - current uncompressed ubuntu is around 400mb.  If you'd like to contribute, please fork and create a pull request, or just raise an issue on github.
+For now, this uses the plain Ubuntu image, so is huge for a very simple perl program - definitely needs the packages trimming.  I've added a testing branch to the github repo so that I can experiment with other base images to see if I can get this reduced in size - current uncompressed ubuntu is around 400mb.  If you'd like to contribute, please fork and create a pull request, or just raise an issue on github.
 
 ## Usage
     docker create \
