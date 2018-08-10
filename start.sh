@@ -21,7 +21,7 @@ then
   /root/get_iplayer --prefs-add --metadata
   /root/get_iplayer --prefs-add --nopurge
   
-  echo Removing non-standard download location(s) from existing PVR files...
+  echo Removing non-standard download location from existing PVR files...
   # so downloads don't get saved in the container
   sed -i '/^output/d' /root/.get_iplayer/pvr/*
 fi
