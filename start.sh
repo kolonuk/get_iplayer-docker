@@ -32,6 +32,9 @@ echo Forcing output location...
 
 if [[ -f /root/get_iplayer.cgi ]]
 then
+  # Start cron
+  service cron start
+  
   # Keep restarting - for when the get_iplayer script is updated
   while true
   do
