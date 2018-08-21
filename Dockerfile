@@ -11,7 +11,8 @@ RUN echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" > /
     echo "@hourly /root/get_iplayer --refresh > /proc/1/fd/1 2>&1" >> /root/cron.tab && \
     echo "@hourly /root/get_iplayer --pvr > /proc/1/fd/1 2>&1" >> /root/cron.tab && \
     echo "@daily /root/update.sh > /proc/1/fd/1 2>&1" >> /root/cron.tab && \
-    crontab /root/cron.tab
+    crontab /root/cron.tab && \
+    rm -f /root/cron.tab
 
 VOLUME /root/.get_iplayer
 VOLUME /root/output
