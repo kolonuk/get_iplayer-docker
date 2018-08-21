@@ -53,7 +53,7 @@ then
   #kill current get_iplayer gracefully (is pvr/cache refresh running?)
   if [[ -f /root/.get_iplayer/pvr_lock ]] #|| [[ -f /root/.get_iplayer/??refreshcache_lock ]]
   then
-    echo ****** Warning - updated scripts, but get_iplayer processes are running so unable to restart get_iplayer
+    echo Warning - updated scripts, but get_iplayer processes are running so unable to restart get_iplayer
   else
     # This will kill the running perl processes, and the start script will just re-load it
     if [[ "$1" != "start" ]]
