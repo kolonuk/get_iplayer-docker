@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo Checking latest version of get_iplayer...
+echo Checking latest versions of get_iplayer...
 
 # Get cgi script version
 if [[ -f /root/get_iplayer.cgi ]]
@@ -23,6 +23,11 @@ then
   #indicates something wrong with the github call
   echo ******** Warning - unable to check latest release!!  Please raise an issue https://github.com/kolonuk/get_iplayer-docker/issues/new
 fi
+
+echo get_iplayer installed        $VERSION
+echo get_iplayer release          $RELEASE
+echo get_iplayer webui installed  $VERSIONcgi
+echo get_iplayer webui release    $RELEASEcgi
 
 if [[ "$VERSION" != "$VERSIONcgi" ]] || \
    [[ "$VERSION" == "" ]] || \
