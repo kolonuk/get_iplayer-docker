@@ -29,7 +29,7 @@ Upon first start, it will download the latest get_iplayer scripts from the offic
 
 To do a manual update, you just need to re-create this container and it will have the latest version from the get_iplayer repo.  I use Portainer <https://hub.docker.com/r/portainer/portainer/> to manage my containers, and I just need to hit the `Recreate` button.
 
-**Watchtower <https://github.com/v2tec/watchtower> will not update this container to the latest version of get_iplayer by its self.  Until Docker introduces monitoring of alternative github repos for automated container builds (which trigger watchtower), this auto-update method is the best you can get.**  However, I do have an IFTTT trigger setup which _should_ trigger a container rebuild and be picked up by watchtower - there just needs to be a pull on the get_iplayer repo to test this out.
+**Watchtower <https://github.com/v2tec/watchtower> will not update this container to the latest version of get_iplayer by its self.  Until Docker introduces monitoring of alternative github repos for automated container builds (which trigger watchtower), this auto-update method is the best you can get.**
 
 ## Issues
 * Report issues with this dockerfile <https://github.com/kolonuk/get_iplayer/issues>
