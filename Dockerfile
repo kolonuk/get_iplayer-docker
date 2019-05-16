@@ -1,13 +1,20 @@
-FROM kolonuk/get_iplayer-docker-base
+FROM alpine:3.9
 
 ADD start.sh /root/start.sh
 ADD update.sh /root/update.sh
 
-RUN chmod 755 /root/start.sh
-RUN chmod 755 /root/update.sh
-
-# Setup crontab
-RUN echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" > /root/cron.tab && \
+RUN apk --update add \
+    bash \
+    ffmpeg \
+    openssl \
+    perl-cgi \
+    perl-mojolicious \
+    perl-lwp-protocol-https \
+    perl-xml-simple \
+    perl-xml-libxml && \
+    chmod 755 /root/start.sh && \
+    chmod 755 /root/update.sh && \
+    echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" > /root/cron.tab && \
     echo "@hourly /root/get_iplayer --refresh > /proc/1/fd/1 2>&1" >> /root/cron.tab && \
     echo "@hourly /root/get_iplayer --pvr > /proc/1/fd/1 2>&1" >> /root/cron.tab && \
     echo "@daily /root/update.sh > /proc/1/fd/1 2>&1" >> /root/cron.tab && \

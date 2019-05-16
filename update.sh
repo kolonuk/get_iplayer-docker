@@ -5,17 +5,17 @@ echo Checking latest versions of get_iplayer...
 # Get cgi script version
 if [[ -f /root/get_iplayer.cgi ]]
 then
-  VERSIONcgi=$(cat /root/get_iplayer.cgi | grep VERSION | grep -oP 'VERSION\ =\ \K.*?(?=;)' | head -1)
+  VERSIONcgi=$(cat /root/get_iplayer.cgi | grep VERSION\ = | awk -F= '{print $2}' | tr -d ' ;' | head -n 1)
 fi
 
 # Get main script version
 if [[ -f /root/get_iplayer ]]
 then
-  VERSION=$(cat /root/get_iplayer | grep version | grep -oP 'version\ =\ \K.*?(?=;)' | head -1)
+  VERSION=$(cat /root/get_iplayer | grep version\ = | awk -F= '{print $2}' | tr -d ' ;' | head -n 1)
 fi
 
 # Get current github release version
-RELEASE=$(wget -q -O - "https://api.github.com/repos/get-iplayer/get_iplayer/releases/latest" | grep -Po '"tag_name": "v\K.*?(?=")')
+RELEASE=$(wget -q -O - "https://api.github.com/repos/get-iplayer/get_iplayer/releases/latest" | grep tag_name | awk '{print $2}' | tr -d '"v,')
 
 # If no github version returned
 if [[ "$RELEASE" == "" ]] && [[ "$FORCEDOWNLOAD" -eq "" ]]
