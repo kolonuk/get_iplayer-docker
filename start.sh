@@ -38,6 +38,9 @@ then
   # Keep restarting - for when the get_iplayer script is updated
   while true
   do
+    # can remove the pvr lock if restarting - prevents "Can't kill a non-numeric process ID at /root/get_iplayer line 2162." error
+    rm /root/.get_iplayer/pvr_lock
+    # start get-iplayer
     /usr/bin/perl /root/get_iplayer.cgi --port 8181 --getiplayer /root/get_iplayer
   done 
 else
