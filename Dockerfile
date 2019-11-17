@@ -2,7 +2,6 @@ FROM alpine:3.9
 
 ADD start.sh /root/start.sh
 ADD update.sh /root/update.sh
-ADD AtomicParsley /usr/local/bin/
 
 RUN apk --update add \
     bash \
@@ -13,9 +12,9 @@ RUN apk --update add \
     perl-lwp-protocol-https \
     perl-xml-simple \
     perl-xml-libxml && \
+    apk add atomicparsley --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && \
     chmod 755 /root/start.sh && \
     chmod 755 /root/update.sh && \
-    chmod 755 /usr/local/bin/AtomicParsley && \
     echo "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" > /root/cron.tab && \
     echo "@hourly /root/get_iplayer --refresh > /proc/1/fd/1 2>&1" >> /root/cron.tab && \
     echo "@hourly /root/get_iplayer --pvr > /proc/1/fd/1 2>&1" >> /root/cron.tab && \
