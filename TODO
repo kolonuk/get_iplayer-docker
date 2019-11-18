@@ -1,8 +1,5 @@
 TODO
 
-* AtomicParsley
-  - compile and include binary for AtomicParsley in docker file (yuck)
-  - include compile and cleanup code in dockerfile (still yuck, but better tasting)
 * update "outputradio" and "outputtv" paths automatically like "output"
 * move away from using root user
 
