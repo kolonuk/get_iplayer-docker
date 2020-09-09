@@ -31,6 +31,9 @@ To do a manual update, you just need to re-create this container and it will hav
 
 **Watchtower <https://github.com/v2tec/watchtower> will not update this container to the latest version of get_iplayer by its self.  Until Docker introduces monitoring of alternative github repos for automated container builds (which trigger watchtower), this auto-update method is the best you can get.**
 
+## Contributing
+Just fork and create a PR.  You can edit online here https://gitpod.io#https://github.com/kolonuk/get_iplayer-docker/.
+
 ## Issues
 * Report issues with this dockerfile <https://github.com/kolonuk/get_iplayer/issues>
 * Report issues with the get_iplayer script <https://squarepenguin.co.uk/forums/>
