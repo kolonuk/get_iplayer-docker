@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# Check if we have get_iplayer
-if [[ ! -f /root/get_iplayer.cgi ]]
-then
-  /root/update.sh start
-fi
+# GEt latest version
+/root/update.sh start
 
 if [[ ! -f /root/get_iplayer ]]
 then  # pause for checking things out...
@@ -47,4 +44,3 @@ else
   echo err2 - Error occurred, pausing for 9999 seconds for investigation
   sleep 9999 # when testing, keep container up long enough to check stuff out
 fi
-
