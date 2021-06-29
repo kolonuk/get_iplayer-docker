@@ -29,6 +29,9 @@ LABEL issues_get_iplayer="Comments/issues for get_iplayer: https://forums.square
 LABEL issues_kolonuk/get_iplayer="Comments/issues for this Dockerfile: https://github.com/kolonuk/get_iplayer-docker/issues"
 LABEL maintainer="John Wood <john@kolon.co.uk>"
 
+#https://betterprogramming.pub/docker-healthchecks-eb744bfe3f3b
+#HEALTHCHECK 
+
 EXPOSE 8181:8181
 
 ENTRYPOINT ["/bin/bash", "/root/start.sh"]
