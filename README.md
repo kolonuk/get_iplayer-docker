@@ -1,8 +1,8 @@
-# get_iplayer on Docker
+# get_iplayer web interface on Docker
 
-Disappointed with the current availability of get_iplayer in docker, I created an auto-updating docker container, complete with the webgui.
+Disappointed with the current availability of get_iplayer in docker, I created an auto-updating docker container, complete with the webgui.  Yes, this is in constant use by at least myself, inspite of the lack of any updates - The beauty of this is that it "just works", and if I do switch to another existing container, I'll discontinue this one.
 
-For now, this uses the plain Ubuntu image, so is huge for a very simple perl program - definitely needs the packages trimming.  I've added a testing branch to the github repo so that I can experiment with other base images to see if I can get this reduced in size - current uncompressed ubuntu is around 400mb.  If you'd like to contribute, please fork and create a pull request, or just raise an issue on github.
+The latest update is re-based to using Alpine, so it's now just over 100mb. If you'd like to contribute, please fork and create a pull request, or just raise an issue on github.
 
 ## Usage
     docker create \
@@ -29,7 +29,7 @@ Upon first start, it will download the latest get_iplayer scripts from the offic
 
 To do a manual update, you just need to re-create this container and it will have the latest version from the get_iplayer repo.  I use Portainer <https://hub.docker.com/r/portainer/portainer/> to manage my containers, and I just need to hit the `Recreate` button.
 
-**Watchtower <https://github.com/v2tec/watchtower> will not update this container to the latest version of get_iplayer by its self.  Until Docker introduces monitoring of alternative github repos for automated container builds (which trigger watchtower), this auto-update method is the best you can get.**
+**Watchtower <https://github.com/v2tec/watchtower> will not update this container to the latest version of get_iplayer by its self.  Until Docker introduces monitoring of alternative github repos for automated container builds (which trigger watchtower), the auto-update method this container does is the best you can get.**
 
 ## Contributing
 Just fork and create a PR.  You can edit online here https://gitpod.io#https://github.com/kolonuk/get_iplayer-docker/.
@@ -42,5 +42,4 @@ Just fork and create a PR.  You can edit online here https://gitpod.io#https://g
 Just a small-time tinkerer of almost anything computer-related (servers, raspi, networks, programming, android, etc.).  I am active on various places on the net, like StackExchange, github, and some mailing lists, etc., so ping me a message about anything - if I don't know, I'll know where to go to find out!
 
 ## Todo
-1. Check different base os's for Dockerfile
-2. Remove as much gumf as possible
+1. Remove as much build gumf as possible
