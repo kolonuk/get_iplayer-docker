@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  get_iplayer:
+    container_name: get_iplayer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8181:8181
+    volumes:
+      - /local-output-location:/root/output:rw
+      - /local-data-location:/root/.get_iplayer:rw
