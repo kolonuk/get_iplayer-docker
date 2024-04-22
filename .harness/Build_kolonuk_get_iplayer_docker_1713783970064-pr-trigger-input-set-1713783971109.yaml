@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_kolonuk_get_iplayer_docker_1713783970064-pr-trigger-input-set
+  identifier: Build_kolonuk_get_iplayer_docker_1713783970064prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_kolonuk_get_iplayer_docker_1713783970064
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
