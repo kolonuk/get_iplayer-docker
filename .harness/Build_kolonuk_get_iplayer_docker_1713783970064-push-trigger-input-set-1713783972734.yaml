@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_kolonuk_get_iplayer_docker_1713783970064-push-trigger-input-set
+  identifier: Build_kolonuk_get_iplayer_docker_1713783970064pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_kolonuk_get_iplayer_docker_1713783970064
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
